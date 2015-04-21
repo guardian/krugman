@@ -65,7 +65,8 @@ module.exports = function(grunt) {
         files: [
             'Gruntfile.js',
             'src/**/*.js',
-            '!src/js/require.js'
+            '!src/js/require.js',
+            '!src/libs'
         ]
     },
 
@@ -245,7 +246,6 @@ module.exports = function(grunt) {
 
   // Tasks
   grunt.registerTask('build', [
-    'jshint',
     'clean',
     'sass',
     'autoprefixer',
