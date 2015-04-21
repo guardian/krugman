@@ -1,0 +1,290 @@
+@each $party, $color in $partyColors {
+    .#{$party}   {
+        fill:$color;
+        color:$color;
+        stroke:$color;
+        stop-color:$color;
+    }
+}
+.gray {
+    fill:#ccc;
+    stroke:#ccc;
+}
+.marker {
+    stroke-width:1 !important;
+}
+/************** CARTOGRAM CONTAINER *************/
+.cartogram {
+    position: relative;
+    height: 642px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.cartogram * {
+    -webkit-tap-highlight-color: inherit;
+}
+.center {
+    position: relative;
+    margin:0 auto;
+    height: 100%;
+    //width:320px;
+    width: 100%;
+}
+/************** CARTOGRAM SVG *************/
+.cartogram svg {
+    background: transparent;
+    display: block;
+    user-select:none;
+}
+.cartogram svg rect.bg {
+    fill-opacity:0;
+    stroke:none;
+}
+.main-maps svg {
+    margin-top:-10px;
+}
+
+g .winner2010 {
+    opacity: 0.6;
+}
+
+.constituency {
+    fill-opacity:0.8;
+    stroke-width:0;
+
+
+}
+
+.constituencies {
+    -webkit-transition: all 1000ms ease-in-out;
+    -moz-transition: all 1000ms ease-in-out;
+    -ms-transition: all 1000ms ease-in-out;
+    -o-transition: all 1000ms ease-in-out;
+    transition: all 1000ms ease-in-out;
+}
+
+.constituency-border {
+    stroke-width:1;
+    stroke:#fff;
+    stroke-opacity:0.3;
+}
+.constituency.gray {
+    stroke-width:0;
+}
+.highlight .constituency {
+    fill-opacity:0.4;
+    stroke-opacity:0;
+}
+
+.highlight .constituency.highlight {
+    fill-opacity:1;
+    stroke-opacity:1;
+    stroke:#000;
+    stroke-width:1;
+}
+.constituency.highlight {
+    fill-opacity:1;
+    stroke-opacity:1;
+    stroke:#000;
+    stroke-width:2;
+}
+.constituency.selected {
+    fill-opacity:1;
+    stroke-opacity:1;
+    stroke:#ddd;
+    stroke-width:2;
+}
+.highlight .constituency.changing {
+    fill-opacity:0.8;
+}
+.constituency.changing {
+    /*fill:#000;*/
+}
+
+#connections .connection {
+    display: none;
+}
+#connections .connection.showme {
+    
+}
+#connections .connection.highlight {
+    display: block;
+}
+#connections .connection line {
+    stroke-width:2;
+    stroke-opacity:1;
+    shape-rendering:crispEdges;
+    fill:none;
+}
+#connections .connection path {
+    stroke-width:2;
+    stroke-opacity:1;
+    shape-rendering:crispEdges;
+    fill:none;
+    stroke:#333;
+}
+#connections .connection line.border {
+    stroke:#fff;
+    stroke-width:1;
+    stroke-opacity:1;
+    shape-rendering:crispEdges;
+}
+/*************** FIGHT *******************/
+.constituency.fight path {
+
+}
+path.fight-battle {
+    fill-opacity: 1;
+}
+path.fight-lean {
+    fill-opacity: 0;
+}
+path.fight-safe {
+    fill-opacity:0;
+}
+path.fight-solid {
+    fill-opacity:0;
+}
+path.bw {
+    fill:#666;
+}
+path.full-opacity {
+    fill-opacity:1;
+}
+/*************** PULSATING *******************/
+
+.constituencies.pulsating path {
+    fill:#ccc;
+}
+
+@-webkit-keyframes pulse {
+    0% { -webkit-transform: scale(1); }
+    50% { -webkit-transform: scale(0.7); }
+    100% { -webkit-transform: scale(1); }
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(10); }
+    100% { transform: scale(1); }
+}
+.pulse path,
+.clone path.pulse {
+    //transform-origin: 50% 50%;
+    //-webkit-transform-origin: 50% 50%;
+    //-moz-transform-origin: 0% 0%;
+    //-ms-transform-origin: 0% 0%;
+    transform-origin: center center;
+    -webkit-animation: pulse 0.5s ease-in-out infinite;
+    animation: pulse 0.5s ease-in-out infinite;
+}
+.pulse path.pulse-battle,
+.clone path.pulse-battle {
+    animation-duration: 0.5s;
+    -webkit-animation-duration: 0.5s;
+}
+.pulse path.pulse-lean,
+.clone path.pulse-lean {
+    animation-duration: 2s;
+    -webkit-animation-duration: 2s;
+}
+.pulse path.pulse-safe,
+.clone path.pulse-safe {
+    animation-duration: 4s;
+    -webkit-animation-duration: 4s;
+}
+.pulse path.pulse-solid,
+.clone path.pulse-solid {
+    animation-duration: 0s;
+    -webkit-animation-duration: 0s;
+}
+/*************** LABELS *******************/
+.m-labels{ font-family: "Guardian Text Sans Web","Agate Sans",sans-serif; fill: #000; font-size: 16px; opacity: 0.4}
+.m-labels-below{ font-family: "Guardian Text Sans Web","Agate Sans",sans-serif; stroke:#000; font-size: 16px; opacity:0; stroke-width:4px; stroke-linejoin:round;}
+#ukProjections {
+    .m-labels{ font-family: "Guardian Text Sans Web","Agate Sans",sans-serif; fill: #FFF; font-size: 16px; opacity: 1}
+    .m-labels-below{ font-family: "Guardian Text Sans Web","Agate Sans",sans-serif; stroke:#000; font-size: 16px; opacity:0.25; stroke-width:4px; stroke-linejoin:round;}
+
+    .regions text.city,
+.regions text.city-below { 
+    font-size:12px;
+}
+}
+/*************** CLONE *******************/
+.clone path {
+    fill:none;
+    stroke-opacity:1;
+    stroke:#000;
+    stroke-width:2;
+}
+/*************** REGIONS *******************/
+.regions path {
+    fill:none;
+    stroke-width:1;
+    stroke:#ccc;
+}
+.regions text { 
+    text-anchor:middle;
+}
+
+.regions text.city,
+.regions text.city-below { 
+    font-size:12px;
+}
+.regions circle.city { 
+    fill:#333;
+}
+.regions path.main {
+    stroke:#333;
+}
+.regions .borders rect {
+    fill:#fff;
+}
+#ukProjections .regions path {
+    fill:none;
+    stroke-width:1;
+    stroke:#fff;
+}
+
+/*************** RESET *******************/
+.reset-zoom {
+    position: absolute;
+    top:10px;
+    right:10px;
+    font-size: 12px;
+    font-family: $f-sans-serif-text;
+}
+.reset-zoom a {
+    background-color:#f1f1f1;
+    color:#333;
+    
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    border-radius: 30px;
+    box-sizing: border-box;
+
+    text-decoration: none;
+    display: block;
+}
+.reset-zoom a:hover {
+    background-color:#ccc;
+}
+@media(min-width:660px){
+    .cartogram {
+        height: 100%;
+    }
+    .center {
+        position: relative;
+        margin:0;
+        float: right;
+        width: 100%;
+    }
+    .hundred {
+        width: 100% !important;
+        height: 100%;
+    }
+    svg.overflow {
+        border-left:1px solid #eee;
+        box-sizing: border-box;
+    }
+}
+
