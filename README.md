@@ -1,5 +1,5 @@
-# interactive-uk-cartogram-2015 
-UK cartogram for 2015 general election: constituency explorer and seat change mapper
+# krugman
+A bespoke article layout for a long reads article by Paul Krugman.
 
 ## Getting started
 If you haven't already installed the following requirements:
