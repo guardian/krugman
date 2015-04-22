@@ -1,9 +1,11 @@
 define([
-    'libs/jquery.js',
-    'text!templates/testTemplate.html'
+    'libs/jquery',
+    'modules/animation',
+    'text!templates/template.html'
 ], function(
     jQuery,
-    testTemplate
+    animation,
+    template
 ) {
     'use strict';
 
@@ -11,13 +13,13 @@ define([
         console.error('Failed: ', err, msg);
     }
     function afterRequest(resp) {
-        //console.log('Finished', resp);
+        // console.log('Finished', resp);
     }
 
-
     function init(el) {
-        console.log(testTemplate);
-        $('.element-interactive').html(testTemplate);
+        $('.content--interactive').html(template);
+        $('.content-footer, .l-footer').hide();
+        animation.init();
     }
 
     return {

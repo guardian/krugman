@@ -1,3 +1,15 @@
-.yo-styles-dawg {
-    background-color: red;
-}
+$c-blue: #c6e0ef;
+$c-red: #e72869;
+$c-black: #020303;
+$c-white: #fff;
+
+$f-data: 'Guardian Agate Sans 1 Web', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+$f-serif-text: 'Guardian Text Egyptian Web', Georgia, serif;
+$f-serif-headline: 'Guardian Egyptian Web', Georgia, serif;
+$f-sans-serif-text: 'Guardian Text Sans Web', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+$f-sans-serif-headline: 'Guardian Sans Web', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+
+@import 'libs/_css3';
+
+@import '_existing.scss';
+@import '_header.scss';
