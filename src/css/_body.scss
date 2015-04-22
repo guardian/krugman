@@ -6,3 +6,37 @@
         line-height: 0.5;
     }
 }
+
+.krugman-body__divider {
+    position: relative;
+    overflow: hidden;
+
+    .frame--1,
+    .frame--2,
+    .frame--3 {
+        display: none;
+    }
+
+    @for $i from 1 through 3 {
+        &.show-frame-#{$i} {
+            .frame--#{$i} {
+                display: block;
+            }
+        }
+    }
+}
+
+.krugman-body__divider-rule {
+    width: 100%;
+    margin: 8em 0;
+    border-top: 14px dashed $c-black;
+}
+
+.krugman-body__divider-scissors {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 40%;
+    margin: auto;
+    margin-left: -20%;
+}
