@@ -7,6 +7,13 @@
     }
 }
 
+.krugman-body__subhead {
+    font-family: $f-serif-headline;
+    color: $c-red;
+    font-weight: bold;
+    font-size: 32px;
+}
+
 .krugman-body__divider {
     position: relative;
     overflow: hidden;
