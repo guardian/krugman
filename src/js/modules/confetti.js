@@ -18,6 +18,13 @@ define([
                 particles = [],
                 confettiHandler,
                 ctx = canvas.getContext('2d');
+                
+            $(window).resize(function() {
+                W = window.innerWidth,
+                H = window.innerHeight,
+                canvas.width = W,
+                canvas.height = H;
+            });
 
             for (var i = 0; i < mp; i++) {
                 if (i%2 == 0) {
