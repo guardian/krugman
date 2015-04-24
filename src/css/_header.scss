@@ -9,27 +9,47 @@
     .gs-container {
         position: relative;
         z-index: 5;
+        overflow: hidden;
     }
 }
 
 .krugman-header__content {
-    width: 50%;
     padding-top: 12px;
     font-family: $f-serif-headline;
-    float: left;
+
+    @include mq(tablet) {
+        float: left;
+        width: 50%;
+    }
 }
 
 .krugman-header__standfirst {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.35;
     color: $c-black;
+    
+    @include mq(desktop) {
+        font-size: 18px;
+    }
 }
 
 .krugman-header__title,
 .krugman-header__subtitle {
-    font-size: 58px;
+    font-size: 38px;
     font-weight: 200;
     line-height: 1;
+
+    @include mq(tablet) {
+        font-size: 38px;
+    }
+
+    @include mq(desktop) {
+        font-size: 52px;
+    }
+
+    @include mq(leftCol) {
+        font-size: 58px;
+    }
 }
 
 .krugman-header__title {
@@ -41,10 +61,16 @@
 }
 
 .krugman-header__man {
-    width: 50%;
-    float: right;
-    margin-top: -200px;
-    margin-bottom: -100px;
+    margin: auto;
+    margin-bottom: -40px;
+    width: 60%;
+
+    @include mq(tablet) {
+        margin-bottom: -100px;
+        margin-top: -200px;
+        width: 50%;
+        float: right;
+    }
 
     .frame--1,
     .frame--2,
@@ -81,4 +107,13 @@
     background: url('@@assetPath@@/imgs/crowd.png') repeat-x;
     background-position: center 100%;
     opacity: .3;
-}
+
+    @include mq($until: tablet) {
+        background-size: 50%;
+        margin-top: 10%;
+    }
+
+    @include mq(tablet, desktop) {
+        margin-top: 200px;
+    }
+} 

@@ -20,6 +20,7 @@ $f-sans-serif-text: 'Guardian Text Sans Web', 'Helvetica Neue', Helvetica, Arial
 $f-sans-serif-headline: 'Guardian Sans Web', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
 
 @import 'libs/_css3';
+@import 'libs/_mq';
 
 @import '_existing.scss';
 @import '_header.scss';

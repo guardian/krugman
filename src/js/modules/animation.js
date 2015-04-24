@@ -1,8 +1,10 @@
 define([
     'libs/jquery',
+    'libs/skrollr',
     'modules/confetti'
 ], function(
     jQuery,
+    Skrollr,
     Confetti
 ) {
     return {
@@ -12,8 +14,8 @@ define([
             this.scrolling();
             this.cutting();
             this.divider();
-            this.header();
             Confetti.init();
+            Skrollr.init({forceHeight: false});
         },
 
         drawing: function(target) {
@@ -39,19 +41,7 @@ define([
                 if (scrollTop + viewportHeight > $('.krugman-body__divider').offset().top) {
                     var frame = Math.floor(scrollTop / 50 % 3) + 1;
                     $('.krugman-body__divider').attr('class', 'krugman-body__divider show-frame-' + frame);
-                    $('.krugman-body__divider-scissors').css({'left' : Math.round(this.percentageSeen($('.krugman-body__divider'))) + '%'});
                 }
-            }.bind(this));
-        },
-
-        header: function() {
-            $(window).scroll(function(){
-                $('.krugman-header__crowd').css({
-                    'background-position': 'center ' + (200 - this.percentageSeen($('.krugman-header__crowd'))) + '%'
-                });
-                $('.krugman-header__man').css({
-                    'margin-top' : '-' + (scrollTop + 200) + 'px'
-                });
             }.bind(this));
         },
 
