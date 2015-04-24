@@ -16,7 +16,15 @@
     }
 
     &--2 {
-        @include transform(rotate(4deg));
+        @include transform(rotate(-172deg));
+    }
+    
+    &--3 {
+        @include transform(rotate(14deg));
+    }
+    
+    &--4 {
+        @include transform(rotate(-185deg));
     }
 
     .frame--1,
