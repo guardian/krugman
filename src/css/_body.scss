@@ -10,7 +10,14 @@
 .krugman-body__divider {
     position: relative;
     overflow: hidden;
-    @include transform(rotate(-7deg));
+    
+    &--1 {
+        @include transform(rotate(-7deg));
+    }
+
+    &--2 {
+        @include transform(rotate(4deg));
+    }
 
     .frame--1,
     .frame--2,

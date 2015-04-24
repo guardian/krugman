@@ -38,11 +38,14 @@ define([
 
         divider: function() {
             $(window).scroll(function() {
-                if (scrollTop + viewportHeight > $('.krugman-body__divider').offset().top) {
+                $('.krugman-body__divider').each(function() {
                     var frame = Math.floor(scrollTop / 50 % 3) + 1;
-                    $('.krugman-body__divider').attr('class', 'krugman-body__divider show-frame-' + frame);
-                }
-            }.bind(this));
+                    var classes = $(this).attr('class').split(" ").filter(function(c) {
+                        return c.lastIndexOf('show-frame-', 0) !== 0;
+                    });
+                    $(this).attr('class', classes.join(" ") + ' show-frame-' + frame);
+                });
+            });
         },
 
         percentageSeen: function(element) {
