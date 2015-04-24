@@ -23,18 +23,9 @@
     }
 }
 
-.krugman-header__standfirst {
-    font-size: 16px;
-    line-height: 1.35;
-    color: $c-black;
-    
-    @include mq(desktop) {
-        font-size: 18px;
-    }
-}
-
+.krugman-header__subtitle,
 .krugman-header__title,
-.krugman-header__subtitle {
+.krugman-header__byline {
     font-size: 38px;
     font-weight: 200;
     line-height: 1;
@@ -53,11 +44,15 @@
 }
 
 .krugman-header__title {
-    color: $c-red;
+    color: $c-black;
 }
 
 .krugman-header__subtitle {
-    color: $c-black;
+    color: $c-white;
+}
+
+.krugman-header__byline {
+    color: $c-red;
 }
 
 .krugman-header__man {
