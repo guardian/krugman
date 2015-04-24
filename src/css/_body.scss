@@ -20,18 +20,34 @@
     
     &--1 {
         @include transform(rotate(-7deg));
+
+        .krugman-body__divider-rule {
+            background: url("@@assetPath@@/imgs/dash-1.svg");
+        }
     }
 
     &--2 {
         @include transform(rotate(-172deg));
+
+        .krugman-body__divider-rule {
+            background: url("@@assetPath@@/imgs/dash-2.svg");
+        }
     }
     
     &--3 {
         @include transform(rotate(14deg));
+
+        .krugman-body__divider-rule {
+            background: url("@@assetPath@@/imgs/dash-3.svg");
+        }
     }
     
     &--4 {
         @include transform(rotate(-185deg));
+
+        .krugman-body__divider-rule {
+            background: url("@@assetPath@@/imgs/dash-4.svg");
+        }
     }
 
     .frame--1,
@@ -52,7 +68,8 @@
 .krugman-body__divider-rule {
     width: 100%;
     margin: 8em 0;
-    border-top: 14px dashed $c-black;
+    height: 20px;
+    background-size: cover;
 }
 
 .krugman-body__divider-scissors {
