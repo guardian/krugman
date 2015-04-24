@@ -63,3 +63,35 @@
     margin: auto;
     margin-left: -20%;
 }
+
+.krugman-body__chart {
+    border-top: 1px solid $c-black;
+    border-bottom: 1px solid lighten($c-black, 80%);
+    margin-bottom: 24px;
+
+    @include mq(tablet) {
+        max-width: 380px;
+        float: right;
+        margin-left: 20px;
+    }
+    
+    @include mq(desktop) {
+        max-width: 460px;
+        margin-right: -220px;
+    }
+
+    img {
+        max-width: 100%;
+        margin-bottom: 14px;
+    }
+}
+
+.krugman-body__chart-title {
+    font-family: $f-serif-headline;
+    color: $c-red;
+    font-weight: bold;
+    font-size: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid lighten($c-black, 80%);
+    margin-bottom: 6px;
+}
