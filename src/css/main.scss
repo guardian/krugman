@@ -1,3 +1,13 @@
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
 $c-blue: #c6e0ef;
 $c-red: #e72869;
 $c-black: #020303;
