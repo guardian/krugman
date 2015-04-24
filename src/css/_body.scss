@@ -10,8 +10,18 @@
 .krugman-body__subhead {
     font-family: $f-serif-headline;
     color: $c-red;
-    font-weight: bold;
+    font-weight: 200;
     font-size: 32px;
+    margin-bottom: 4em;
+    position: absolute;
+    top: 55%;
+    right: 15%;
+    line-height: 1.2;
+
+    span {
+        display: block;
+        font-weight: bold;
+    }
 }
 
 .krugman-body__divider {
@@ -19,7 +29,11 @@
     overflow: hidden;
     
     &--1 {
-        @include transform(rotate(-7deg));
+        @include transform(rotate(-8deg));
+
+        .krugman-body__subhead {
+            right: 60%;
+        }
 
         .krugman-body__divider-rule {
             background: url("@@assetPath@@/imgs/dash-1.svg");
@@ -27,7 +41,7 @@
     }
 
     &--2 {
-        @include transform(rotate(-172deg));
+        @include transform(rotate(6deg));
 
         .krugman-body__divider-rule {
             background: url("@@assetPath@@/imgs/dash-2.svg");
@@ -35,7 +49,11 @@
     }
     
     &--3 {
-        @include transform(rotate(14deg));
+        @include transform(rotate(-3deg));
+
+        .krugman-body__subhead {
+            right: 45%;
+        }
 
         .krugman-body__divider-rule {
             background: url("@@assetPath@@/imgs/dash-3.svg");
@@ -43,7 +61,11 @@
     }
     
     &--4 {
-        @include transform(rotate(-185deg));
+        @include transform(rotate(9deg));
+
+        .krugman-body__subhead {
+            right: 30%;
+        }
 
         .krugman-body__divider-rule {
             background: url("@@assetPath@@/imgs/dash-4.svg");
