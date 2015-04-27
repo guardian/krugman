@@ -18,7 +18,6 @@ define([
 
     function init(el) {
         $('.content--interactive').html(template);
-        $('.content-footer, .l-footer').hide();
         animation.init();
     }
 

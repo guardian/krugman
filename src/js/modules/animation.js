@@ -14,6 +14,7 @@ define([
             this.scrolling();
             this.cutting();
             this.divider();
+            this.illustrations();
             Confetti.init();
             Skrollr.init({forceHeight: false});
         },
@@ -39,6 +40,18 @@ define([
         divider: function() {
             $(window).scroll(function() {
                 $('.krugman-body__divider').each(function() {
+                    var frame = Math.floor(scrollTop / 50 % 3) + 1;
+                    var classes = $(this).attr('class').split(" ").filter(function(c) {
+                        return c.lastIndexOf('show-frame-', 0) !== 0;
+                    });
+                    $(this).attr('class', classes.join(" ") + ' show-frame-' + frame);
+                });
+            });
+        },
+
+        illustrations: function() {
+            $(window).scroll(function() {
+                $('.krugman-body__illustration').each(function() {
                     var frame = Math.floor(scrollTop / 50 % 3) + 1;
                     var classes = $(this).attr('class').split(" ").filter(function(c) {
                         return c.lastIndexOf('show-frame-', 0) !== 0;
