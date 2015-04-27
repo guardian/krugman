@@ -1,3 +1,43 @@
+.krugman-body__blockquote {
+    position: relative;
+    font-family: $f-serif-headline;
+    font-weight: 200;
+    line-height: 1.2;
+
+    @include mq($until: desktop) {
+        font-size: 24px;
+        margin: 2.4em 0;
+    }
+
+    @include mq(desktop) {
+        max-width: 300px;
+        float: right;
+        margin-right: -320px;
+        font-size: 28px;
+    }
+
+    &:before {
+        position: absolute;
+        top: -2em;
+        width: 2em;
+        height: 2em;
+        background: url("@@assetPath@@/imgs/quote-66.svg") no-repeat;
+        background-size: contain;
+        content: "";
+    }
+
+    &:after {
+        position: absolute;
+        bottom: -2em;
+        right: 0;
+        width: 2em;
+        height: 2em;
+        background: url("@@assetPath@@/imgs/quote-99.svg") no-repeat;
+        background-size: contain;
+        content: "";
+    }
+}
+
 .krugman-body__raised {
     margin-top: 2em;
     height: 7em;
