@@ -59,6 +59,21 @@
     color: $c-red;
 }
 
+.krugman-header__tag {
+    font-weight: bold;
+    font-family: $f-serif-headline;
+    font-size: 20px;
+    line-height: 0.8;
+
+    @include mq(leftCol) {
+        font-size: 24px;
+    }
+
+    a {
+        color: $c-red;
+    }
+}
+
 .krugman-header__man {
     margin: auto;
     margin-bottom: -40px;
