@@ -38,6 +38,29 @@
     }
 }
 
+.krugman-body__meta {
+    font-size: 14px;
+    font-family: $f-sans-serif-text;
+    padding-top: 6px;
+    color: #676767;
+
+    @include mq(leftCol) {
+        float: left;
+        margin-left: -160px;
+        width: 140px;
+        margin-right: 20px;
+        margin-top: 9em;
+        border-top: 1px dotted #ddd;
+        padding-top: 3px;
+    }
+
+    @include mq(wide) {
+        width: 220px;
+        margin-left: -240px;
+        margin-right: 20px;
+    }
+}
+
 .krugman-body__raised {
     margin-top: 2em;
     height: 7em;
