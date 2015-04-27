@@ -103,9 +103,13 @@
     font-size: 32px;
     margin-bottom: 4em;
     position: absolute;
-    top: 55%;
+    top: 56%;
     right: 15%;
-    line-height: 1.2;
+    line-height: 1;
+
+    @include mq(leftCol) {
+        font-size: 38px;
+    }
 
     span {
         display: block;
