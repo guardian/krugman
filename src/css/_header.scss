@@ -92,6 +92,12 @@
     }
 }
 
+.krugman-header__social {
+    position: absolute;
+    z-index: 5;
+    bottom: 12px;
+}
+
 .krugman-header__confetti {
     position: absolute;
     z-index: 2;
