@@ -41,6 +41,10 @@
     @include mq(leftCol) {
         font-size: 58px;
     }
+
+    a {
+        color: inherit;
+    }
 }
 
 .krugman-header__title {
@@ -65,6 +69,12 @@
         margin-top: -200px;
         width: 50%;
         float: right;
+    }
+
+    @include mq(desktop) {
+        margin-bottom: -150px;
+        width: 400px;
+        margin-right: 5%;
     }
 
     .frame--1,
