@@ -51,7 +51,7 @@ define([
 
         illustrations: function() {
             $(window).scroll(function() {
-                $('.krugman-body__illustration').each(function() {
+                $('.krugman-body__illustration--framey').each(function() {
                     var frame = Math.floor(scrollTop / 50 % 3) + 1;
                     var classes = $(this).attr('class').split(" ").filter(function(c) {
                         return c.lastIndexOf('show-frame-', 0) !== 0;
