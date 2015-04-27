@@ -1,9 +1,11 @@
 .krugman-body__raised {
-    margin-top: 5em;
+    margin-top: 2em;
+    height: 7em;
 
-    &:first-letter {
-        font-size: 10em;
-        line-height: 0.5;
+    &--b {
+        margin-bottom: -4px;
+        margin-left: -7px;
+        margin-right: -4px;
     }
 }
 
