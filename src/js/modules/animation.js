@@ -7,20 +7,26 @@ define([
     Skrollr,
     Confetti
 ) {
+    var scrollTop = 0;
+
     return {
 
         init: function() {
-            var scrollTop = 0;
             this.scrolling();
-            this.cutting();
-            this.divider();
-            this.illustrations();
-            this.blinky();
-            Confetti.init();
-            Skrollr.init({forceHeight: false});
-            $(window).load(function() {
-                Skrollr.refresh();
-            })
+            Skrollr.init({
+                forceHeight: false,
+                skrollrBody: 'js-context',
+                render: function(data) {
+                    scrollTop = data.curTop;
+                    this.cutting(scrollTop);
+                    this.divider(scrollTop);
+                    this.illustrations(scrollTop);
+                    this.blinky(scrollTop);
+                }.bind(this)
+            });
+            if(!Skrollr.init().isMobile()) {
+                Confetti.init();
+            }
         },
 
         drawing: function(target) {
@@ -30,50 +36,41 @@ define([
             path.addClass('animate');
         },
 
-        cutting: function() {
-            var topOfMan = $('.krugman-header__man').position().top,
-                bottomOfMan = topOfMan + $('.krugman-header__man').height();
-            $(window).scroll(function() {
-                if (bottomOfMan > scrollTop) {
-                    var frame = Math.floor(scrollTop / 100 % 3) + 1;
-                    $('.krugman-header__man').attr('class', 'krugman-header__man show-frame-' + frame);
-                }
-            });
+        cutting: function(scrollTop) {
+            var bottomOfMan = $('.krugman-header__man').position().top + $('.krugman-header__man').height();
+            if (bottomOfMan > scrollTop) {
+                var frame = Math.floor(scrollTop / 100 % 3) + 1;
+                $('.krugman-header__man').attr('class', 'krugman-header__man show-frame-' + frame);
+            }
         },
 
         divider: function() {
-            $(window).scroll(function() {
-                $('.krugman-body__divider').each(function() {
-                    var frame = Math.floor(scrollTop / 50 % 3) + 1;
-                    var classes = $(this).attr('class').split(" ").filter(function(c) {
-                        return c.lastIndexOf('show-frame-', 0) !== 0;
-                    });
-                    $(this).attr('class', classes.join(" ") + ' show-frame-' + frame);
+            $('.krugman-body__divider').each(function() {
+                var frame = Math.floor(scrollTop / 50 % 3) + 1;
+                var classes = $(this).attr('class').split(" ").filter(function(c) {
+                    return c.lastIndexOf('show-frame-', 0) !== 0;
                 });
+                $(this).attr('class', classes.join(" ") + ' show-frame-' + frame);
             });
         },
 
         illustrations: function() {
-            $(window).scroll(function() {
-                $('.krugman-body__illustration--framey').each(function() {
-                    var frame = Math.floor(scrollTop / 50 % 3) + 1;
-                    var classes = $(this).attr('class').split(" ").filter(function(c) {
-                        return c.lastIndexOf('show-frame-', 0) !== 0;
-                    });
-                    $(this).attr('class', classes.join(" ") + ' show-frame-' + frame);
+            $('.krugman-body__illustration--framey').each(function() {
+                var frame = Math.floor(scrollTop / 50 % 3) + 1;
+                var classes = $(this).attr('class').split(" ").filter(function(c) {
+                    return c.lastIndexOf('show-frame-', 0) !== 0;
                 });
+                $(this).attr('class', classes.join(" ") + ' show-frame-' + frame);
             });
         },
 
         blinky: function() {
-            $(window).scroll(function() {
-                $('.krugman-body__illustration--blinky').each(function() {
-                    var frame = Math.floor(scrollTop / 100 % 5) + 1;
-                    var classes = $(this).attr('class').split(" ").filter(function(c) {
-                        return c.lastIndexOf('show-frame-', 0) !== 0;
-                    });
-                    $(this).attr('class', classes.join(" ") + ' show-frame-' + frame);
+            $('.krugman-body__illustration--blinky').each(function() {
+                var frame = Math.floor(scrollTop / 100 % 5) + 1;
+                var classes = $(this).attr('class').split(" ").filter(function(c) {
+                    return c.lastIndexOf('show-frame-', 0) !== 0;
                 });
+                $(this).attr('class', classes.join(" ") + ' show-frame-' + frame);
             });
         },
 
@@ -93,9 +90,6 @@ define([
         },
 
         scrolling: function() {
-            $(window).scroll(function() {
-                scrollTop = $(window).scrollTop();
-            });
             viewportHeight = $(window).height();
             $(window).resize(function() {
                 viewportHeight = $(window).height();
