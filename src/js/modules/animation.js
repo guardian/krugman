@@ -15,6 +15,7 @@ define([
             this.cutting();
             this.divider();
             this.illustrations();
+            this.blinky();
             Confetti.init();
             Skrollr.init({forceHeight: false});
         },
@@ -53,6 +54,18 @@ define([
             $(window).scroll(function() {
                 $('.krugman-body__illustration--framey').each(function() {
                     var frame = Math.floor(scrollTop / 50 % 3) + 1;
+                    var classes = $(this).attr('class').split(" ").filter(function(c) {
+                        return c.lastIndexOf('show-frame-', 0) !== 0;
+                    });
+                    $(this).attr('class', classes.join(" ") + ' show-frame-' + frame);
+                });
+            });
+        },
+
+        blinky: function() {
+            $(window).scroll(function() {
+                $('.krugman-body__illustration--blinky').each(function() {
+                    var frame = Math.floor(scrollTop / 100 % 5) + 1;
                     var classes = $(this).attr('class').split(" ").filter(function(c) {
                         return c.lastIndexOf('show-frame-', 0) !== 0;
                     });

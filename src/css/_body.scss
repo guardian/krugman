@@ -271,17 +271,26 @@
         .frame--1,
         .frame--2,
         .frame--3,
-        .frame--4 {
+        .frame--4,
+        .frame--5 {
             display: none;
         }
     }
 
-    @for $i from 1 through 4 {
+    @for $i from 1 through 5 {
         &.show-frame-#{$i} {
             .frame--#{$i} {
                 display: block;
             }
         }
+    }
+}
+
+.krugman-body__illustration--crop-bottom {
+    height: 324px;
+
+    svg {
+        padding-bottom: 0;
     }
 }
 
