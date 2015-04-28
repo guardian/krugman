@@ -1,3 +1,17 @@
+.krugman-body p {
+    margin-bottom: 1rem;
+
+    a {
+        color: $c-red;
+        border-bottom: 1px solid lighten($c-red, 40%);
+
+        &:hover {
+            border-bottom-color: $c-red;
+            text-decoration: none;
+        }
+    }
+}
+
 .krugman-body__blockquote {
     position: relative;
     font-family: $f-serif-headline;
@@ -64,6 +78,10 @@
         margin-left: -240px;
         margin-right: 20px;
     }
+
+    strong {
+        color: #333;
+    }
 }
 
 .krugman-body__raised {
@@ -99,6 +117,11 @@
         margin-left: -3px;
         margin-right: -27px;
     }
+    
+    &--f {
+        margin-bottom: -4px;
+        margin-right: -40px;
+    }
 }
 
 .krugman-body__subhead {
@@ -109,7 +132,6 @@
     margin-bottom: 4em;
     position: absolute;
     top: 56%;
-    right: 15%;
     line-height: 1;
 
     @include mq(leftCol) {
@@ -130,7 +152,9 @@
         @include transform(rotate(-8deg));
 
         .krugman-body__subhead {
-            right: 60%;
+            @include mq(tablet) {
+                left: 35%;
+            }
         }
 
         .krugman-body__divider-rule {
@@ -141,6 +165,12 @@
     &--2 {
         @include transform(rotate(6deg));
 
+        .krugman-body__subhead {
+            @include mq(tablet) {
+                left: 15%;
+            }
+        }
+
         .krugman-body__divider-rule {
             background: url("@@assetPath@@/imgs/dash-2.svg");
         }
@@ -150,7 +180,9 @@
         @include transform(rotate(-3deg));
 
         .krugman-body__subhead {
-            right: 45%;
+            @include mq(tablet) {
+                left: 30%;
+            }
         }
 
         .krugman-body__divider-rule {
@@ -162,7 +194,9 @@
         @include transform(rotate(9deg));
 
         .krugman-body__subhead {
-            right: 30%;
+            @include mq(tablet) {
+                left: 15%;
+            }
         }
 
         .krugman-body__divider-rule {
@@ -218,6 +252,12 @@
 
     img {
         width: 100%;
+    }
+
+    &--1 {
+        @include mq(tablet) {
+            margin-top: 8em;
+        }
     }
 }
 

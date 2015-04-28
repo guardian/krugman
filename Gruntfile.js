@@ -4,6 +4,7 @@ var currentTime = +new Date();
 var versionedAssetPath = 'assets-' + currentTime;
 var CDN = 'http://interactive.guim.co.uk/';
 var deployAssetPath = CDN + pkg.config.s3_folder + versionedAssetPath;
+console.log(deployAssetPath);
 var localAssetPath = 'http://localhost:' + pkg.config.port + '/assets';
 
 module.exports = function(grunt) {
