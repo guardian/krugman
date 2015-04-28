@@ -101,6 +101,14 @@
     svg {
         width: 100%;
         height: 100%;
+
+        @include mq(tablet) {
+            height: 892px;
+        }
+
+        @include mq(leftCol) {
+            height: 1018px;
+        }
     }
 
     @for $i from 1 through 3 {

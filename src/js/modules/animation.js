@@ -13,20 +13,37 @@ define([
 
         init: function() {
             this.scrolling();
-            Skrollr.init({
-                forceHeight: false,
-                skrollrBody: 'js-context',
-                render: function(data) {
-                    scrollTop = data.curTop;
+            if(!(/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera)){
+                Skrollr.init({
+                    forceHeight: false,
+                    skrollrBody: 'js-context',
+                    render: function(data) {
+                        scrollTop = data.curTop;
+                        this.cutting(scrollTop);
+                        this.divider(scrollTop);
+                        this.illustrations(scrollTop);
+                        this.blinky(scrollTop);
+                    }.bind(this)
+                });
+            } else {
+                $(window).scroll(function() {
+                    scrollTop = $(window).scrollTop();
+                                            this.cutting(scrollTop);
+                        this.divider(scrollTop);
+                        this.illustrations(scrollTop);
+                        this.blinky(scrollTop);
+                }.bind(this));
+            }
+            Confetti.init();
+/*
+                $(window).scroll(function() {
+                    scrollTop = $(window).scrollTop();
                     this.cutting(scrollTop);
                     this.divider(scrollTop);
                     this.illustrations(scrollTop);
                     this.blinky(scrollTop);
-                }.bind(this)
-            });
-            if(!Skrollr.init().isMobile()) {
-                Confetti.init();
-            }
+                });
+*/
         },
 
         drawing: function(target) {
@@ -93,7 +110,7 @@ define([
             viewportHeight = $(window).height();
             $(window).resize(function() {
                 viewportHeight = $(window).height();
-            })
+            });
         }
     };
 });

@@ -117,10 +117,10 @@
         margin-left: -3px;
         margin-right: -27px;
     }
-    
+
     &--f {
         margin-bottom: -4px;
-        margin-right: -40px;
+        margin-right: -71px;
     }
 }
 
@@ -233,9 +233,14 @@
     height: 60%;
     margin: auto;
     margin-left: -20%;
+    display: none;
 
     @include mq(tablet) {
         height: 100%;
+    }
+    
+    .skrollr & {
+        display: block;
     }
 }
 
@@ -304,11 +309,11 @@
     width: 100%;
     margin: 24px 0;
     background-color: $c-blue;
+    padding: 24px 0;
 
     svg {
         width: 100%;
         height: 100%;
-        padding: 24px 0;
         @include box-sizing(border-box);
         margin: 0 auto;
 
@@ -332,10 +337,8 @@
 
 .krugman-body__illustration--crop-bottom {
     height: 324px;
+    padding-bottom: 0;
 
-    svg {
-        padding-bottom: 0;
-    }
 }
 
 .krugman-body__social {
