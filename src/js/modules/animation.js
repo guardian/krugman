@@ -18,6 +18,9 @@ define([
             this.blinky();
             Confetti.init();
             Skrollr.init({forceHeight: false});
+            $(window).load(function() {
+                Skrollr.refresh();
+            })
         },
 
         drawing: function(target) {
