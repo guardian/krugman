@@ -124,6 +124,10 @@
     position: absolute;
     z-index: 5;
     bottom: 12px;
+
+    .article--feature & {
+        display: none;
+    }
 }
 
 .krugman-header__confetti {

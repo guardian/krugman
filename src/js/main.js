@@ -17,7 +17,7 @@ define([
     }
 
     function init(el) {
-        $('.content--interactive').html(template);
+        $('.content--interactive, .article--feature').html(template);
         $(window).ready(function() {
             animation.init();
         });

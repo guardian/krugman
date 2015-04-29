@@ -87,6 +87,7 @@
 .krugman-body__raised {
     margin-top: 2em;
     height: 7em;
+    display: inline;
 
     &--b {
         margin-bottom: -4px;
@@ -345,4 +346,8 @@
     margin-top: 24px;
     border-top: 1px dotted #ddd;
     padding-top: 6px;
+
+    #standard-article-container & {
+        display: none;
+    }
 }
