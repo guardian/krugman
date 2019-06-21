@@ -6,7 +6,7 @@
 
     p a {
         color: $c-red;
-        border-bottom: 1px solid mix($c-red, $c-white, 20%);
+        border-bottom: 1px solid mix($c-red, $c-white, 40%);
         text-decoration: none;
 
         &:hover {
@@ -19,18 +19,226 @@
     }
 }
 
-.uit-drop {
-    @include dropCap(4);
-    font-weight: bold;
-    color: $c-red;
-}
-
-.uit-subhead {
-    @include banding($c-yellow);
+.uit-body__blockquote {
+    position: relative;
+    font-family: 'Guardian Egyptian Web';
+    font-weight: 200;
+    line-height: 1.2;
     font-size: 24px;
-    font-weight: bold;
+    margin: 2.4em 0 24px;
+
+    @include mq(desktop) {
+        max-width: 300px;
+        float: right;
+        margin-right: -320px;
+        margin-top: 2.1em;
+        font-size: 28px;
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: -2em;
+        width: 2em;
+        height: 2em;
+        background: url('{{ path }}/assets/quote-66.svg') no-repeat;
+        background-size: contain;
+    }
+
+    &:after {
+        @include mq(desktop) {
+            content: '';
+            position: absolute;
+            bottom: -2.3em;
+            left: 0;
+            width: 2em;
+            height: 2em;
+            background: url('{{ path }}/assets/quote-99.svg') no-repeat;
+            background-size: contain;
+        }
+    }
 }
 
-.uit-button {
-    @include button($c-white, $c-red);
+p.uit-body__meta {
+    font-size: 14px;
+    line-height: 1.4;
+    font-family: 'Guardian Sans Web';
+    padding-top: 6px;
+    color: #676767;
+
+    @include mq(leftCol) {
+        float: left;
+        margin-left: -160px;
+        width: 140px;
+        margin-right: 20px;
+        margin-top: 9em;
+        border-top: 1px solid #ddd;
+        padding-top: 3px;
+    }
+
+    @include mq(wide) {
+        width: 220px;
+        margin-left: -240px;
+        margin-right: 20px;
+    }
+
+    strong {
+        color: #333;
+    }
+}
+
+.uit-body__raised {
+    margin-top: 2em;
+    height: 7em;
+    display: inline;
+
+    &--b {
+        margin-bottom: -4px;
+        margin-left: -9px;
+        margin-right: -8px;
+    }
+
+    &--w {
+        margin-bottom: -4px;
+        margin-left: -3px;
+        margin-right: -27px;
+    }
+
+    &--a {
+        margin-bottom: -2px;
+        margin-left: -4px;
+        margin-right: -10px;
+    }
+
+    &--t {
+        margin-bottom: -2px;
+        margin-right: -62px;
+        margin-left: -6px;
+    }
+
+    &--i {
+        margin-bottom: -6px;
+        margin-left: -3px;
+        margin-right: -27px;
+    }
+
+    &--f {
+        margin-bottom: -4px;
+        margin-right: -71px;
+    }
+}
+
+.uit-body__divider {
+    position: relative;
+    overflow: hidden;
+
+    &--1 {
+        transform: rotate(-8deg);
+
+        .uit-body__subhead {
+            @include mq(tablet) {
+                left: 35%;
+            }
+        }
+
+        .uit-body__divider-rule {
+            background: url("{{ path }}/assets/dash-1.svg");
+        }
+    }
+
+    &--2 {
+        transform: rotate(6deg);
+
+        .uit-body__subhead {
+            @include mq(tablet) {
+                left: 15%;
+            }
+        }
+
+        .uit-body__divider-rule {
+            background: url("{{ path }}/assets/dash-2.svg");
+        }
+    }
+
+    &--3 {
+        transform: rotate(-3deg);
+
+        .uit-body__subhead {
+            @include mq(tablet) {
+                left: 30%;
+            }
+        }
+
+        .uit-body__divider-rule {
+            background: url("{{ path }}/imgs/dash-3.svg");
+        }
+    }
+
+    &--4 {
+        transform: rotate(9deg);
+
+        .uit-body__subhead {
+            @include mq(tablet) {
+                left: 15%;
+            }
+        }
+
+        .uit-body__divider-rule {
+            background: url("{{ path }}/imgs/dash-4.svg");
+        }
+    }
+
+    .frame--1,
+    .frame--2,
+    .frame--3 {
+        display: none;
+    }
+
+    @for $i from 1 through 3 {
+        &.show-frame-#{$i} {
+            .frame--#{$i} {
+                display: block;
+            }
+        }
+    }
+}
+
+.uit-body__divider-rule {
+    width: 100%;
+    margin: 8em 0;
+    height: 20px;
+    background-size: cover;
+}
+
+.uit-body__divider-scissors {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 60%;
+    margin: auto;
+    margin-left: -20%;
+
+    @include mq(tablet) {
+        height: 100%;
+    }
+}
+
+.uit-body__subhead {
+    font-family: 'Guardian Egyptian Web';
+    color: $c-red;
+    font-weight: 200;
+    font-size: 32px;
+    margin-bottom: 4em;
+    position: absolute;
+    top: 56%;
+    line-height: 1;
+
+    @include mq(leftCol) {
+        font-size: 38px;
+    }
+
+    span {
+        display: block;
+        font-weight: bold;
+    }
 }
