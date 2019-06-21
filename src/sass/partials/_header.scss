@@ -1,38 +1,71 @@
 .uit-header {
-    overflow: auto;
+    position: relative;
+    z-index: 20;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background-color: $c-blue;
+    background-image: url('{{ path }}/assets/crowd.png');
+    background-repeat: repeat-x;
+    background-position: center 100%;
+
+    .uit-container {
+        border: 0;
+    }
+}
+
+.uit-header__content {
+    position: relative;
+    z-index: 5;
+    padding-top: 6px;
+
+    &:before {
+        display: none;
+    }
 }
 
 .uit-header__headline {
-    padding: 6px 0;
+    margin: 0;
+    padding: 0;
     font-family: 'Guardian Egyptian Web';
-    font-weight: 700;
+    font-weight: 200;
     font-size: 24px;
     line-height: 1.1;
+    color: $c-black;
 
     @include mq(tablet) {
         font-size: 48px;
     }
+
+    @include mq(desktop) {
+        font-size: 52px;
+    }
 }
 
-.uit-header__headline-kicker {
+.uit-header__headline-sub {
     display: block;
-    color: $c-red;
+    color: $c-white;
 }
 
-.uit-header__standfirst {
-    padding: 3px 0 0;
+.uit-header__tag {
     font-family: 'Guardian Egyptian Web';
-    font-weight: 300;
-    font-size: 18px;
-    line-height: 1.2;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: .8;
+    color: $c-black;
 
     @include mq(tablet) {
+        font-size: 20px;
+    }
+
+    @include mq(leftCol) {
         font-size: 24px;
     }
 }
 
 .uit-header .uit-share {
-    padding-bottom: 24px;
+    margin-top: 140%;
+    padding-bottom: 12px;
 }
 
 .uit-header__byline {
@@ -51,9 +84,21 @@
     }
 }
 
-.uit-header__dateline {
-    font-family: 'Guardian Sans Web';
-    font-size: 14px;
-    color: $c-dark-grey;
-    margin: 2px 0 12px 0;
+.uit-header__man {
+    position: absolute;
+    bottom: -5%;
+    left: 0;
+    right: 0;
+    width: 60%;
+    margin: auto;
+}
+
+.uit-header__canvas {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
 }
