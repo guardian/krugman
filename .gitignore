@@ -1,6 +1,11 @@
 node_modules/
 bower_components/
-build/
-temp/
+.build/
+.deploy/
+.local/
+yarn.lock
 .DS_Store
 .sass-cache/
+keys.json
+npm-debug.log
+package-lock.json

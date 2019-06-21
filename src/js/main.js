@@ -1,29 +1,7 @@
-define([
-    'libs/jquery',
-    'modules/animation',
-    'text!templates/template.html'
-], function(
-    jQuery,
-    animation,
-    template
-) {
-    'use strict';
+// Javascript that is inline. Should be used for anything that needs to be immediate
+import jquery from 'jquery';
+window.$ = jquery;
 
-    function handleRequestError(err, msg) {
-        console.error('Failed: ', err, msg);
-    }
-    function afterRequest(resp) {
-        // console.log('Finished', resp);
-    }
+import share from './modules/share.js';
 
-    function init(el) {
-        $('.content--interactive, .article--feature').html(template);
-        $(window).ready(function() {
-            animation.init();
-        });
-    }
-
-    return {
-        init: init
-    };
-});
+share.init();
