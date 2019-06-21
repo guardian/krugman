@@ -19,6 +19,11 @@
     z-index: 5;
     padding-top: 6px;
 
+    @include mq(tablet) {
+        padding-right: 300px;
+        padding-top: 12px;
+    }
+
     &:before {
         display: none;
     }
@@ -66,6 +71,14 @@
 .uit-header .uit-share {
     margin-top: 140%;
     padding-bottom: 12px;
+
+    @include mq(tablet) {
+        margin-top: 300px;
+    }
+
+    @include mq(desktop) {
+        margin-top: 340px;
+    }
 }
 
 .uit-header__byline {
@@ -91,6 +104,21 @@
     right: 0;
     width: 60%;
     margin: auto;
+
+    @include mq(tablet) {
+        bottom: -10%;
+        margin: 0;
+        left: auto;
+        width: 300px;
+    }
+
+    @include mq(desktop) {
+        right: 80px;
+    }
+
+    @include mq(wide) {
+        width: 380px;
+    }
 }
 
 .uit-header__canvas {
