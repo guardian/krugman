@@ -14,6 +14,7 @@ export default {
                 scrollTop = data.curTop;
                 this.headerCutting();
                 this.dividerCutting();
+                this.illustrationFrames();
             }.bind(this)
         });
     },
@@ -30,8 +31,14 @@ export default {
     dividerCutting: function() {
         $('.uit-body__divider').each(function() {
             var frame = Math.floor(scrollTop / 50 % 3) + 1;
-            console.log($(this));
             $(this).removeClass('show-frame-1 show-frame-2 show-frame-3').addClass('show-frame-' + frame)
+        });
+    },
+
+    illustrationFrames: function() {
+        $('.uit-body__illustration--frames').each(function() {
+            var frame = Math.floor(scrollTop / 50 % 3) + 1;
+            $(this).removeClass('show-frame-1 show-frame-2 show-frame-3 show-frame-4 show-frame-5').addClass('show-frame-' + frame)
         });
     }
 };
