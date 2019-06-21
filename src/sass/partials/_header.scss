@@ -119,6 +119,20 @@
     @include mq(wide) {
         width: 380px;
     }
+
+    .frame--1,
+    .frame--2,
+    .frame--3 {
+        display: none;
+    }
+
+    @for $i from 1 through 3 {
+        &.show-frame-#{$i} {
+            .frame--#{$i} {
+                display: block;
+            }
+        }
+    }
 }
 
 .uit-header__canvas {

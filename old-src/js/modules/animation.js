@@ -28,7 +28,7 @@ define([
             } else {
                 $(window).scroll(function() {
                     scrollTop = $(window).scrollTop();
-                                            this.cutting(scrollTop);
+                        this.cutting(scrollTop);
                         this.divider(scrollTop);
                         this.illustrations(scrollTop);
                         this.blinky(scrollTop);
