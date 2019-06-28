@@ -9,6 +9,10 @@
     background-repeat: repeat-x;
     background-position: center 200%;
 
+    @include mq(tablet) {
+        height: auto;
+    }
+
     .uit-container {
         border: 0;
         height: 100%;

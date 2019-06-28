@@ -11,7 +11,7 @@ export default {
             this.headerCutting();
             this.dividerCutting();
             this.illustrationFrames();
-        }.bind(this))
+        }.bind(this));
     },
 
     headerCutting: function() {
@@ -20,6 +20,15 @@ export default {
         if ($man.position().top + $man.height() > scrollTop) {
             var frame = Math.floor(scrollTop / 50 % 3) + 1;
             $man.attr('class', 'uit-header__man show-frame-' + frame);
+
+            var $parent = $('.uit-header');
+            var windowHeight = $(window).height();
+            var elHeight = $parent.height();
+
+            if (elHeight > scrollTop) {
+                var interimValue = (((elHeight - scrollTop) / elHeight) * 80) + 120;
+                $parent.attr('style', `background-position-y: ${interimValue}%`)
+            }
         }
     },
 
