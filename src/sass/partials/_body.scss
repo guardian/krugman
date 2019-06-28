@@ -246,10 +246,24 @@ p.uit-body__meta {
 
 .uit-body__illustration {
     height: 300px;
-    width: 100%;
-    margin: 24px 0;
+    width: calc(100% + 20px);
     background-color: $c-blue;
     padding: 24px 0;
+    margin-left: -10px;
+
+    @include mq(mobileLandscape) {
+        margin-left: -20px;
+        width: calc(100% + 40px);
+    }
+
+    @include mq(tablet) {
+        margin-left: -21px;
+        width: calc(100% + 42px);
+    }
+
+    & + .uit-content {
+        padding-top: 24px;
+    }
 
     svg {
         width: 100%;
