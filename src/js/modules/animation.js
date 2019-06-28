@@ -28,15 +28,14 @@ export default {
             var frame = Math.floor(scrollTop / 50 % 3) + 1;
             $(this).removeClass('show-frame-1 show-frame-2 show-frame-3').addClass('show-frame-' + frame);
 
-            //data-bottom-top="left: -30%;" data-top-bottom="left: 150%;"
-
             var $scissors = $(this).find('.uit-body__divider-scissors');
             var position = $(this).offset().top;
             var windowHeight = $(window).height();
             var elHeight = $(this).height();
 
             if (scrollTop > position - windowHeight && !(position + elHeight < scrollTop)) {
-                console.log('in view');
+                var interimValue = 180 - (((position + elHeight - scrollTop) / (windowHeight + elHeight)) * 180) - 30;
+                $scissors.attr('style', `left: ${interimValue}%`)
             }
         });
     },
