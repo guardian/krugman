@@ -207,7 +207,8 @@ p.uit-body__meta {
     width: 100%;
     margin: 8em 0;
     height: 20px;
-    background-size: cover;
+    background-size: cover !important;
+    background-repeat: repeat-x;
 }
 
 .uit-body__divider-scissors {
