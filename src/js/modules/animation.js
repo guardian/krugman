@@ -54,11 +54,5 @@ export default {
             var frame = Math.floor(scrollTop / 50 % 3) + 1;
             $(this).removeClass('show-frame-1 show-frame-2 show-frame-3 show-frame-4 show-frame-5').addClass('show-frame-' + frame)
         });
-    },
-
-    refreshOnImageLoad: function() {
-        // console.log(s);
-        // s.refresh($('.uit-body__illustration path'));
-        // s.refresh($('.uit-body__illustration g'));
     }
 };
