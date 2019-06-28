@@ -1,116 +1,64 @@
-define([
-    'libs/jquery',
-    'libs/skrollr',
-    'modules/confetti'
-], function(
-    jQuery,
-    Skrollr,
-    Confetti
-) {
-    var scrollTop = 0;
+let scrollTop;
 
-    return {
+export default {
+    init: function() {
+        this.bindings();
+    },
 
-        init: function() {
-            this.scrolling();
-            if(!(/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera)){
-                Skrollr.init({
-                    forceHeight: false,
-                    skrollrBody: 'js-context',
-                    render: function(data) {
-                        scrollTop = data.curTop;
-                        this.cutting(scrollTop);
-                        this.divider(scrollTop);
-                        this.illustrations(scrollTop);
-                        this.blinky(scrollTop);
-                    }.bind(this)
-                });
-            } else {
-                $(window).scroll(function() {
-                    scrollTop = $(window).scrollTop();
-                                            this.cutting(scrollTop);
-                        this.divider(scrollTop);
-                        this.illustrations(scrollTop);
-                        this.blinky(scrollTop);
-                }.bind(this));
+    bindings: function() {
+        $(window).scroll(function() {
+            scrollTop = $(window).scrollTop();
+            this.headerCutting();
+            this.dividerCutting();
+            this.illustrationFrames();
+        }.bind(this));
+    },
+
+    headerCutting: function() {
+        const $man = $('.uit-header__man');
+
+        if ($man.position().top + $man.height() > scrollTop) {
+            var frame = Math.floor(scrollTop / 50 % 3) + 1;
+            $man.attr('class', 'uit-header__man show-frame-' + frame);
+
+            var $parent = $('.uit-header');
+            var windowHeight = $(window).height();
+            var elHeight = $parent.height();
+
+            if (elHeight > scrollTop) {
+                var interimValue = (((elHeight - scrollTop) / elHeight) * 80) + 120;
+                $parent.attr('style', `background-position-y: ${interimValue}%`)
             }
-            Confetti.init();
-/*
-                $(window).scroll(function() {
-                    scrollTop = $(window).scrollTop();
-                    this.cutting(scrollTop);
-                    this.divider(scrollTop);
-                    this.illustrations(scrollTop);
-                    this.blinky(scrollTop);
-                });
-*/
-        },
-
-        drawing: function(target) {
-            var $path = $(target);
-            var length = path.getTotalLength();
-            path.getBoundingClientRect();
-            path.addClass('animate');
-        },
-
-        cutting: function(scrollTop) {
-            var bottomOfMan = $('.krugman-header__man').position().top + $('.krugman-header__man').height();
-            if (bottomOfMan > scrollTop) {
-                var frame = Math.floor(scrollTop / 100 % 3) + 1;
-                $('.krugman-header__man').attr('class', 'krugman-header__man show-frame-' + frame);
-            }
-        },
-
-        divider: function() {
-            $('.krugman-body__divider').each(function() {
-                var frame = Math.floor(scrollTop / 50 % 3) + 1;
-                var classes = $(this).attr('class').split(" ").filter(function(c) {
-                    return c.lastIndexOf('show-frame-', 0) !== 0;
-                });
-                $(this).attr('class', classes.join(" ") + ' show-frame-' + frame);
-            });
-        },
-
-        illustrations: function() {
-            $('.krugman-body__illustration--framey').each(function() {
-                var frame = Math.floor(scrollTop / 50 % 3) + 1;
-                var classes = $(this).attr('class').split(" ").filter(function(c) {
-                    return c.lastIndexOf('show-frame-', 0) !== 0;
-                });
-                $(this).attr('class', classes.join(" ") + ' show-frame-' + frame);
-            });
-        },
-
-        blinky: function() {
-            $('.krugman-body__illustration--blinky').each(function() {
-                var frame = Math.floor(scrollTop / 100 % 5) + 1;
-                var classes = $(this).attr('class').split(" ").filter(function(c) {
-                    return c.lastIndexOf('show-frame-', 0) !== 0;
-                });
-                $(this).attr('class', classes.join(" ") + ' show-frame-' + frame);
-            });
-        },
-
-        percentageSeen: function(element) {
-            var elementOffsetTop = element.offset().top,
-                elementHeight = element.height();
-
-                if (elementOffsetTop > (scrollTop + viewportHeight)) {
-                    return 0;
-                } else if ((elementOffsetTop + elementHeight) < scrollTop) {
-                    return 100;
-                } else {
-                    var distance = (scrollTop + viewportHeight) - elementOffsetTop;
-                    var percentage = distance / ((viewportHeight + elementHeight) / 100);
-                    return percentage;
-                }
-        },
-
-        scrolling: function() {
-            viewportHeight = $(window).height();
-            $(window).resize(function() {
-                viewportHeight = $(window).height();
-            });
         }
-    };
-});
+    },
+
+    dividerCutting: function() {
+        $('.uit-body__divider').each(function() {
+            var frame = Math.floor(scrollTop / 50 % 3) + 1;
+            $(this).removeClass('show-frame-1 show-frame-2 show-frame-3').addClass('show-frame-' + frame);
+
+            var $scissors = $(this).find('.uit-body__divider-scissors');
+            var position = $(this).offset().top;
+            var windowHeight = $(window).height();
+            var elHeight = $(this).height();
+
+            if (scrollTop > position - windowHeight && !(position + elHeight < scrollTop)) {
+                var interimValue = 180 - (((position + elHeight - scrollTop) / (windowHeight + elHeight)) * 180) - 30;
+                $scissors.attr('style', `left: ${interimValue}%`)
+            }
+        });
+    },
+
+    illustrationFrames: function() {
+        $('.uit-body__illustration--frames').each(function() {
+            var frame = Math.floor(scrollTop / 50 % 3) + 1;
+            $(this).removeClass('show-frame-1 show-frame-2 show-frame-3 show-frame-4 show-frame-5').addClass('show-frame-' + frame)
+        });
+    },
+
+    refreshOnImageLoad: function() {
+        // console.log(s);
+        // s.refresh($('.uit-body__illustration path'));
+        // s.refresh($('.uit-body__illustration g'));
+    }
+};
